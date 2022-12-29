@@ -34,8 +34,8 @@ jobs:
           file: Dockerfile
           push: true
           tags: hsahbus/demo:latest
-          cache-from: type=local,src=/tmp/.buildx-cache
-          cache-to: type=local,mode=max,dest=/tmp/.buildx-cache-new 
+          cache-from: type=gha,src=/tmp/.buildx-cache
+          cache-to: type=gha,mode=max,dest=/tmp/.buildx-cache-new 
       - name: list files
         run: |
            cd /tmp/
