@@ -41,7 +41,7 @@ jobs:
            cd /tmp/
            ls -ltr
           
-    #  - name: Move cache
-     #   run: |
-       #   rm -rf ~/.composer/cache/files/vendor/.buildx-cache
-        #  mv ~/.composer/cache/files/vendor/.buildx-cache-new  ~/.composer/cache/files/vendor/.buildx-cache
+      - name: Move cache
+        run: |
+          rm -rf /tmp/.buildx-cache
+          mv /tmp/.buildx-cache-new  /tmp/.buildx-cache
