@@ -29,13 +29,13 @@ jobs:
       - name: Build production image
         uses: docker/build-push-action@v3
         with:
-          context: .
+          context: ./
           builder: ${{ steps.buildx.outputs.name }}
           file: Dockerfile
           push: true
           tags: hsahbus/demo/demo:latest
-          cache-from: type=local,src=~/.composer/cache/files/vendor/.buildx-cache
-          cache-to: type=local,mode=max,dest=~/.composer/cache/files/vendor/.buildx-cache-new
+          cache-from: type=gha,src=~/.composer/cache/files/vendor/.buildx-cache
+          cache-to: type=gha,dest=~/.composer/cache/files/vendor/.buildx-cache-new,mode=max
       - name: Move cache
         run: |
           rm -rf ~/.composer/cache/files/vendor/.buildx-cache
