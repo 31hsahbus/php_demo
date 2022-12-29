@@ -1,0 +1,15 @@
+{
+    "name": "admin/supershop.com",
+    "autoload": {
+        "psr-4": {
+            "Admin\\SupershopCom\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "31hsahbus",
+            "email": "subhash.p@dataphion.com"
+        }
+    ],
+    "require": {}
+}
