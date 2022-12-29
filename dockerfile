@@ -1,5 +1,6 @@
 FROM ubuntu:20.04
-
+WORKDIR /api
+COPY composer.json composer.lock /api/
 RUN apt-get update
 RUN apt-get install software-properties-common -y
 RUN add-apt-repository -y ppa:ondrej/php
@@ -35,8 +36,7 @@ RUN apt-get install git -y
 
 
 #COPY . /var/www/html
-WORKDIR /api
-COPY composer.json composer.lock /api/
+
 COPY . /api
 #RUN chmod a+rw -R /api/storage/logs
 #RUN chmod -R ugo+rw /api/storage/logs
