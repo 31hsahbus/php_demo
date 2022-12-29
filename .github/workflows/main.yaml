@@ -16,7 +16,7 @@ jobs:
       - name: Cache Docker layers
         uses: actions/cache@v3
         with:
-          path: /tmp/.buildx-cache
+          path: ~/.composer/.buildx-cache
           key: ${{ runner.os }}-multi-buildx-${{ github.sha }}
           restore-keys: |
             ${{ runner.os }}-multi-buildx
@@ -34,9 +34,9 @@ jobs:
           file: Dockerfile
           push: true
           tags: hsahbus/demo/ci_dlc:latest
-          cache-from: type=local,src=/app/.buildx-cache
-          cache-to: type=local,mode=max,dest=/app/.buildx-cache-new
+          cache-from: type=local,src=/~/.composer/.buildx-cache
+          cache-to: type=local,mode=max,dest=/~/.composer/.buildx-cache-new
       - name: Move cache
         run: |
-          rm -rf /app/.buildx-cache
-          mv /app/.buildx-cache-new /app/.buildx-cache
+          rm -rf /~/.composer/.buildx-cache
+          mv /~/.composer/.buildx-cache-new /~/.composer/.buildx-cache
