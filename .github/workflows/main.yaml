@@ -39,7 +39,7 @@ jobs:
       - name: list files
         run: |
            cd /tmp/
-           ls -ltr
+           ls 
           
       - name: Move cache
         run: |
