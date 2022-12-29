@@ -35,7 +35,7 @@ jobs:
           push: true
           tags: hsahbus/demo:latest
           cache-from: type=gha,src=~/.composer/cache/files/vendor/.buildx-cache
-          cache-to: type=gha,dest=~/.composer/cache/files/vendor/.buildx-cache-new ,mode=max
+          cache-to: type=gha,mode=max,dest=~/.composer/cache/files/vendor/.buildx-cache-new 
       - name: Move cache
         run: |
           rm -rf ~/.composer/cache/files/vendor/.buildx-cache
