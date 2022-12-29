@@ -17,7 +17,7 @@ jobs:
         uses: actions/cache@v3
         with:
           path: ~/.composer/cache/files/vendor/.buildx-cache
-          key: ${{ runner.os }}-multi-buildx-${{ composer.lock }}
+          key: ${{ runner.os }}-multi-buildx-${{ '**/composer.lock' }}
           restore-keys: |
             ${{ runner.os }}-multi-buildx
       - name: Login to GitHub Container Registry
