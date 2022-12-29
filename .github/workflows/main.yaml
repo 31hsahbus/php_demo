@@ -17,7 +17,7 @@ jobs:
         uses: actions/cache@v3
         with:
           path: ~/.composer/cache/files/vendor/.buildx-cache
-          key: ${{ runner.os }}-multi-buildx-${{ github.sha }}
+          key: ${{ runner.os }}-multi-buildx-${{ composer.lock }}
           restore-keys: |
             ${{ runner.os }}-multi-buildx
       - name: Login to GitHub Container Registry
@@ -33,7 +33,7 @@ jobs:
           builder: ${{ steps.buildx.outputs.name }}
           file: Dockerfile
           push: true
-          tags: hsahbus/demo/ci_dlc:latest
+          tags: hsahbus/demo/demo:latest
           cache-from: type=local,src=~/.composer/cache/files/vendor/.buildx-cache
           cache-to: type=local,mode=max,dest=~/.composer/cache/files/vendor/.buildx-cache-new
       - name: Move cache
