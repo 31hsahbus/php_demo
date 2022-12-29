@@ -33,7 +33,7 @@ jobs:
           builder: ${{ steps.buildx.outputs.name }}
           file: Dockerfile
           push: true
-          tags: hsahbus/demo/demo:latest
+          tags: hsahbus/demo:latest
           cache-from: type=gha,src=~/.composer/cache/files/vendor/.buildx-cache
           cache-to: type=gha,dest=~/.composer/cache/files/vendor/.buildx-cache-new,mode=max
       - name: Move cache
