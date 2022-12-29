@@ -4,13 +4,6 @@ COPY composer.json composer.lock /api/
 RUN apt-get update
 RUN apt-get install software-properties-common -y
 RUN add-apt-repository -y ppa:ondrej/php
-#RUN apt-get update && apt-get install -y \
-#    php7.4-fpm \
-#    php7.4-common \
-#    php7.4-mysql \
-#    php7.4-xml \
-#    php7.4-mbstring
-
 
 RUN apt-get update && apt-get install -y \
     php8.1-fpm \
@@ -32,7 +25,7 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 RUN apt-get install php8.1-curl -y
 RUN apt-get install git -y 
 #modified php.ini(upload file size)
-#COPY php.ini /etc/php/8.1/fpm
+COPY php.ini /etc/php/8.1/fpm
 
 
 #COPY . /var/www/html
